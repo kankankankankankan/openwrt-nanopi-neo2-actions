@@ -59,11 +59,12 @@ jobs:
       
     - name: 以前的package
       run:  |
-        #cd openwrt
-        #sudo chmod -R 777 /openwrt
+        cd openwrt
+        sudo chmod -R 777 /openwrt
         #echo  "" >> ./feeds.conf.default
         #echo  "src-git oldlienol https://github.com/TinyTitanPro/lienol-openwrt-package" >> ./feeds.conf.default
-        cd openwrt/package && git clone https://github.com/kenzok8/openwrt-packages.git
+        echo "src-git NanoHatOLED https://github.com/vinewx/NanoHatOLED.git" >> ./feeds.conf.default
+        cd package && git clone https://github.com/kenzok8/openwrt-packages.git
         
     - name: Initialization environment初始化环境
       env:
