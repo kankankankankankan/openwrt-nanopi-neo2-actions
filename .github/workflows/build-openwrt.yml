@@ -65,7 +65,7 @@ jobs:
         #echo  "src-git oldlienol https://github.com/TinyTitanPro/lienol-openwrt-package" >> ./feeds.conf.default
         
         #sed -i '/routing/a\src-git NanoHatOLED https://github.com/vinewx/NanoHatOLED.git' feeds.conf.default
-        echo "\nsrc-git NanoHatOLED https://github.com/vinewx/NanoHatOLED.git" >> ./feeds.conf.default
+        echo -e "\nsrc-git NanoHatOLED https://github.com/vinewx/NanoHatOLED.git" >> ./feeds.conf.default
         
         cd package && git clone https://github.com/kenzok8/openwrt-packages.git
         
