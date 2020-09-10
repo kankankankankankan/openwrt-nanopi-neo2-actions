@@ -66,7 +66,7 @@ jobs:
         
         #sed -i '/routing/a\src-git NanoHatOLED https://github.com/vinewx/NanoHatOLED.git' feeds.conf.default
         echo -e "\nsrc-git NanoHatOLED https://github.com/vinewx/NanoHatOLED.git" >> ./feeds.conf.default
-        
+        echo -e "\nsrc-git lienol https://github.com/Lienol/openwrt-package" >> ./feeds.conf.default
         cd package && git clone https://github.com/kenzok8/openwrt-packages.git
         
     - name: Initialization environment初始化环境
