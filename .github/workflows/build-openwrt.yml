@@ -27,7 +27,6 @@ env:
  REPO_BRANCH: master
  CONFIG_FILE: neo2config
  DIY_SH: diy.sh
- SSH_ACTIONS: false
  UPLOAD_BIN_DIR: false
  UPLOAD_FIRMWARE: true
  UPLOAD_COWTRANSFER: true
@@ -97,9 +96,6 @@ jobs:
         cd openwrt
         ../$DIY_SH
 
-    - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
-      if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
     - name: Download package下载包
       id: package
