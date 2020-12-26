@@ -28,7 +28,7 @@ env:
  CONFIG_FILE: neo2config
  DIY_SH: diy.sh
  UPLOAD_BIN_DIR: false
- UPLOAD_FIRMWARE: true
+ UPLOAD_FIRMWARE: false
  UPLOAD_COWTRANSFER: true
  UPLOAD_WETRANSFER: true
  TZ: Asia/Shanghai
@@ -150,3 +150,14 @@ jobs:
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        
+    - name: setup aliyun oss
+      uses: manyuanrong/setup-ossutil@master
+      with:
+        endpoint: oss-cn-shanghai.aliyuncs.com
+        access-key-id: ${{ secrets.OSS_ACCESSKEYID }}
+        access-key-secret: ${{ secrets.OSS_ACCESSKEYSECRET }}
+        
+    - name: cp img to aliyun
+      run: |
+        ossutil cp -rf openwrt/bin/targets/*/* oss://cdnqingjieme/firmware/NEO2-oled-lede/
