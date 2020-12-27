@@ -24,7 +24,7 @@ on:
   # https://github.com/coolsnowwolf/lede
 env:
  REPO_URL: https://github.com/1715173329/openwrt
- REPO_BRANCH: master
+ REPO_BRANCH: openwrt-18.06
  CONFIG_FILE: neo2config
  DIY_SH: diy.sh
  UPLOAD_BIN_DIR: false
